@@ -1,0 +1,23 @@
+IDENTIFICATION DIVISION.
+PROGRAM-ID. MY-BANK_PASSBOOK.
+DATA DIVISION.
+    WORKING-STORAGE SECTION.
+   01 Name PIC A(10) value "Vinoth".
+   01 Transaction-id PIC X(10) value "x8943g89".   
+   01 Debited PIC 9(5)V99 value 35.00.
+   01 Original PIC 9(8)V99 value 500.00.
+   01 Balance PIC 9(8)V99.
+   01 Debited-E PIC Z(5)9.99.
+   01 Original-E PIC Z(8)9.99. 
+   01 Balance-E PIC Z(8)9.99.
+PROCEDURE DIVISION.
+    DISPLAY "Name:" FUNCTION TRIM(Name).
+    DISPLAY "Transaction-ID:" FUNCTION TRIM(Transaction-id).
+    MOVE Debited TO Debited-E
+    DISPLAY "Debited:" Debited.
+    MOVE Original TO Original-E.
+    DISPLAY "Original Amount:"FUNCTION TRIM(Original-E).
+    COMPUTE Balance = Original - Debited.
+    MOVE Balance TO Balance-E.
+    DISPLAY "Balance:"FUNCTION TRIM(Balance-E).
+STOP RUN.
